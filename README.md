@@ -6,5 +6,5 @@
 
 
  <h3>Gif in the board</h3> 
-
+div style="text-align:center"><img src="https://github.com/Giovani-Pedroso/Converter-of-images-and-videos-to-128-x-64-display/blob/main/project%20demo.gif" /></div>
  <center>![](https://github.com/Giovani-Pedroso/Converter-of-images-and-videos-to-128-x-64-display/blob/main/project%20demo.gif) </center>
