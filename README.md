@@ -5,7 +5,7 @@ Software powered by in python to help embedded little animations in yours microc
 
  <h3>Software screen</h3>
  
-![Image description](https://github.com/Giovani-Pedroso/Converter-of-images-and-videos-to-128-x-64-display/blob/main/screen.png)
+![Image description](https://github.com/Giovani-Pedroso/Converter-of-images-and-videos-to-128-x-64-display/blob/main/main_screen%20.png)
 
 
  <h3>Gif in the arduino board </h3>
