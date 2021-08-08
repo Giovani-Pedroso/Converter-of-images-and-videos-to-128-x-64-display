@@ -1,0 +1,168 @@
+Main_box:
+
+
+#komi.png
+<Main_box>:
+
+    input_image:in_image
+    output_image:ou_image
+
+    #layout_images:lay_ima
+
+    input_file:file_in
+
+    parameter_1_slider:p1s
+    parameter_2_slider:p2s
+
+    resolution_spinner: res_spinner
+    #output_file:file_out
+#    import_button = ObjectProperty()
+#    frame_slider = ObjectProperty()
+#
+#    mode_spinner =ObjectProperty()
+#    inv_switch = ObjectProperty()
+    
+   
+
+    orientation:'vertical'
+    canvas:
+        Color: 
+            rgb: 53/255, 31/255 , 57/255
+        Rectangle:
+            size:self.size
+            
+            
+    
+
+
+    BoxLayout:#imagem block
+        
+        padding:'10dp'
+        spacing:'10dp'
+
+
+        
+            
+        Image:
+            size:0,0
+            id:in_image
+
+        FileChooserIconView:#load files
+            id:file_in
+            size_hint: None,None
+            size:0,0
+            on_selection:root.input(self.selection)#file_in
+            
+        Image:
+            size:0,0
+            id:ou_image
+            allow_strech: True
+
+    BoxLayout:
+        size_hint: 1,.4
+        BoxLayout:#Import
+            orientation:'vertical'
+            padding:'6dp'
+            Button:
+                id:import_button
+                text:'Import'
+                
+                on_press:root.call_input_screen()
+                
+            #ProgressBar:
+            #    max:100
+
+            
+                
+            Slider:
+                id:frame_slider
+                value_track:True
+                value_track_color:0, 170/255 , 1, 1
+                value_track_width:'5dp'
+                disabled:True
+                on_value:root.update()
+
+                
+                
+        BoxLayout:#conversion block
+            orientation:'vertical'
+
+            BoxLayout:
+                Label:
+                    text:'resolution'
+
+                Spinner:
+                    id:res_spinner
+                    text:'128x64'
+                    values:'128x64','64x64','64x32','32x32','32x16','16x16','16x8','8x8'
+                    disabled:True
+                    on_text: root.resolution_selection(self)
+            
+            BoxLayout:
+                padding:'6dp'
+                Spinner:
+                    id:mode_spinner
+                    text:'Simple threshold'
+                    values:'Simple threshold','Adaptive threshold','Canny'
+                    disabled:True
+                    on_text:root.conversion()
+                Label:
+                    text:'INV'
+                Switch:
+                    id:inverter_switch
+                    disabled:True
+                    on_active: root.color_inv(self)
+                    
+
+
+            BoxLayout:
+                Label:
+                    id:parameter_1_label
+                    text:''
+                    
+                Slider:
+                    id:p1s
+                    value_track:True
+                    value_track_color:0, 170/255 , 1, 1
+                    value_track_width:'5dp'
+                    disabled:True
+                    on_value:root.conversion()
+                    min:3
+                    value:3
+            BoxLayout:
+                Label:
+                    id:parameter_2_label
+                    text:''
+                    
+                Slider:
+                    id:p2s
+                    value_track:True
+                    value_track_color:0, 170/255 , 1, 1
+                    value_track_width:'5dp'
+                    disabled:True
+                    min:3
+                    value:3
+                    on_value:root.conversion()
+                    
+
+            
+            
+        BoxLayout:#output block
+            orientation:'vertical'
+            padding:'6dp'
+            BoxLayout:
+                Label:
+                    text:'Byte orientation'
+                    
+                Spinner:
+                    id:bit_orientation_spinner
+                    text:'vertical'
+                    values:'vertical','horizontal'
+                    disabled:True
+            Button:
+                id:export_button 
+                text:'export'
+                disabled:True
+                on_press:root.img_2_bmp()
+
+
