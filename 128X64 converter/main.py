@@ -1,3 +1,4 @@
+#Import the Libs for the GUI
 from logging import disable
 from kivy.app import App
 from kivy.uix.image import Image
@@ -9,19 +10,22 @@ from kivy.properties import ObjectProperty
 from kivy.graphics.texture import Texture
 from kivy.core.window import Window
 from kivy.uix.popup import Popup
+
+#Import the OpenCv lib this lib is use to modify the images
 import cv2 as cv
 
-
+#Define the size of the program's window
 Window.minimum_height = 400
 Window.minimum_width = 1220
-#import opencv_func
 
-org = '/home/cleide/Área de Trabalho/Nova pasta/Python/Open CV a new journey/komi.png'
+#Creation of an App object
 class main_window(App):
     pass
 
+#Creation of window App object
 class Main_box(BoxLayout):
-    #input_image = Image()
+    
+    
     input_image = ObjectProperty()
     output_image = ObjectProperty()
 
